@@ -1,6 +1,6 @@
 /**
- * Collecting system informations with Chome extension api's
- * https://developer.chrome.com/docs/extensions/reference/
+ * Collecting system informations with Chrome extension api's
+ * https://www.chromium.org/developers/design-documents/extensions/proposed-changes/apis-under-development/systeminfo
  */
 class SystemInformation {
   /**
