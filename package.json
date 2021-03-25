@@ -1,0 +1,25 @@
+{
+  "name": "chromium-system-diagnostics-extension",
+  "version": "1.0.0",
+  "description": "This chromium extension periodically fetching system info for system diagnostics.",
+  "main": "background.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "generate:docs": "npx jsdoc -d ./docs/ ./source/*/*",
+    "serve:docs": "npx serve ./docs/",
+    "lint": "eslint source/** --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.22.0",
+    "eslint-config-google": "^0.14.0",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

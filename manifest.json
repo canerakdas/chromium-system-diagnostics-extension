@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "System Diagnostics Extension",
+  "version": "0.1",
+  "description": "This chromium extension periodically fetching system info for system diagnostics.",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "system.cpu",
+    "system.display",
+    "system.memory",
+    "system.storage",
+    "storage",
+    "background"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "externally_connectable": {
+    "matches": ["*://localhost/:5000","*://127.0.0.1/:5000"]
+  }
+}
