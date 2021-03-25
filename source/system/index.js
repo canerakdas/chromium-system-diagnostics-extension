@@ -106,16 +106,20 @@ class SystemInformation {
         this.listener((info) => {
           const struct = {};
 
-          for (let index = 0; index < filter.length; index++) {
-            const element = filter[index];
-            struct[element] = info[element];
-          }
+          if (filter.indexOf('*') < 0) {
+            for (let index = 0; index < filter.length; index++) {
+              const element = filter[index];
+              struct[element] = info[element];
+            }
 
-          // If time params is true add to time information
-          if (time === true) {
-            struct['time'] = new Date().getTime();
+            // If time params is true add to time information
+            if (time === true) {
+              struct['time'] = new Date().getTime();
+            }
+            resolve(struct);
+          } else {
+            resolve(info);
           }
-          resolve(struct);
         });
       } catch (error) {
         reject(error);

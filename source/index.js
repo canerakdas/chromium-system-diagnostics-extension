@@ -3,7 +3,7 @@ import SystemInformation from './system/';
 const TIMEOUT = 30000;
 const SAMPLE_LIMIT = 15;
 
-// Cpu configurations
+// Cpu configuration
 const cpu = new SystemInformation({
   'history': {
     'keywords': [
@@ -26,7 +26,7 @@ const cpu = new SystemInformation({
   'storage': chrome.storage.local,
 });
 
-// Memory configurations
+// Memory configuration
 const memory = new SystemInformation({
   'history': {
     'keywords': [
@@ -37,6 +37,16 @@ const memory = new SystemInformation({
     'limit': SAMPLE_LIMIT,
   },
   'listener': chrome.system.memory.getInfo,
+  'storage': chrome.storage.local,
+});
+
+// Storage configuration
+const storage = new SystemInformation({
+  'detail': {
+    'keywords': ['*'],
+    'storage': 'storage.detail',
+  },
+  'listener': chrome.system.storage.getInfo,
   'storage': chrome.storage.local,
 });
 
@@ -51,9 +61,11 @@ chrome.runtime.onInstalled.addListener(function() {
 
 window.cpu = cpu;
 window.memory = memory;
+window.storage = storage;
 
 // Periodically run jobs and get the current system status
 setInterval(() => {
   cpu.appendToHistory();
   memory.appendToHistory();
+  storage.update();
 }, TIMEOUT);
