@@ -22,11 +22,16 @@ export default class SystemInformation {
     return new Promise((resolve, reject) => {
       try {
         this.config.listener((info) =>{
-          const item = {
+          let item = {
             'id': this.config.cursor,
             'time': new Date().getTime(),
-            ...info,
           };
+
+          if (Array.isArray(info) === true) {
+            item.detail = info;
+          } else {
+            item = {...item, ...info};
+          }
 
           this.config.cursor = this.config.cursor + 1;
 
