@@ -3,7 +3,6 @@ import SystemInformation from '../adapter/chrome_system/index.js';
 const config = {
   sampleLimit: 15,
   listener: chrome.system.memory.getInfo,
-  name: 'chrome.memory',
 };
 
 /**
