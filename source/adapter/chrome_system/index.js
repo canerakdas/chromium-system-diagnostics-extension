@@ -34,12 +34,6 @@ export default class SystemInformation {
             this.storage.shift();
           }
 
-          chrome.runtime.sendMessage({
-            scope: this.config.name,
-            type: 'add',
-            body: item,
-          });
-
           this.storage.push(item);
           resolve(item);
         });

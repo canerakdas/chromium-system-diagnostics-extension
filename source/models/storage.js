@@ -3,7 +3,6 @@ import SystemInformation from '../adapter/chrome_system/index.js';
 const config = {
   sampleLimit: 1,
   listener: chrome.system.storage.getInfo,
-  name: 'chrome.storage',
 };
 
 /**
