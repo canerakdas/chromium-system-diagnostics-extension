@@ -20,11 +20,11 @@ npm run build
 
 ## Installing extension
 
-[https://developer.chrome.com/docs/extensions/mv3/faq/#faq-dev-01](How can I set up extension)
+[How can I set up extension](https://developer.chrome.com/docs/extensions/mv3/faq/#faq-dev-01)
 
 ## How to get extension id
 
-1. chrome://extensions/
+1. [Open the extensions](chrome://extensions/)
 2. Find "System Diagnostics Extension" and click "Details"
 3. The ID is the long string of characters at ID section.
 
