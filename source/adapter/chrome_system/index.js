@@ -50,8 +50,8 @@ export default class SystemInformation {
 
   /**
    * Retrieve stored item by id
-   * @param {Int} id
-   * @return {Array}
+   * @param {int} id
+   * @return {array}
    */
   getById(id) {
     try {
@@ -67,12 +67,12 @@ export default class SystemInformation {
 
   /**
    * Get all of stored items
-   * @param {Array} fields []Array
-   * @param {String} sort
-   * @param {String} order
-   * @param {Int} offset
-   * @param {Int} limit
-   * @return {Object}
+   * @param {array} fields []Array
+   * @param {string} sort
+   * @param {string} order
+   * @param {int} offset
+   * @param {int} limit
+   * @return {object}
    */
   getAll(fields, sort, order, offset, limit) {
     try {
@@ -110,9 +110,9 @@ export default class SystemInformation {
 
   /**
    * Update item by id
-   * @param {Int} id
-   * @param {Object} item
-   * @return {Error}
+   * @param {int} id
+   * @param {object} item
+   * @return {error}
    */
   update(id, item) {
     try {
@@ -130,8 +130,8 @@ export default class SystemInformation {
 
   /**
    * Delete item by id
-   * @param {Int} id
-   * @return {Error}
+   * @param {int} id
+   * @return {error}
    */
   delete(id) {
     try {

@@ -5,17 +5,17 @@
 export default class Controller {
   /**
    * Create an instance of controller
-   * @param {Object} config
+   * @param {object} config
    */
   constructor(config) {
     this.config = config || {};
-    this.mapping();
+    this.router();
   }
 
   /**
-   * Mapping methods
+   *
    */
-  mapping() {
+  router() {
     chrome.runtime.onMessageExternal.addListener(
         async (request, sender, sendResponse) => {
           if (request.type === this.config.type) {
@@ -59,7 +59,7 @@ export default class Controller {
 
   /**
    * Creating and storing new item
-   * @return {Promise}
+   * @return {promise}
    */
   post() {
     return this.config.model.add();
@@ -67,8 +67,8 @@ export default class Controller {
 
   /**
    * Retrieve stored item by id
-   * @param {Int} id
-   * @return {Array}
+   * @param {int} id
+   * @return {array}
    */
   getOne(id) {
     return this.config.model.getById(id);
@@ -76,12 +76,12 @@ export default class Controller {
 
   /**
    * Get all of stored items
-   * @param {Array} fields []Array
-   * @param {String} sort
-   * @param {String} order
-   * @param {Int} offset
-   * @param {Int} limit
-   * @return {Object}
+   * @param {array} fields []Array
+   * @param {string} sort
+   * @param {string} order
+   * @param {int} offset
+   * @param {int} limit
+   * @return {object}
    */
   getAll(fields, sort, order, offset, limit) {
     return this.config.model.getAll(
@@ -94,9 +94,9 @@ export default class Controller {
 
   /**
    * Update item by id
-   * @param {Int} id
-   * @param {Object} item
-   * @return {Error}
+   * @param {int} id
+   * @param {object} item
+   * @return {error}
    */
   put(id, item) {
     return this.config.model.update(id, item);
@@ -104,8 +104,8 @@ export default class Controller {
 
   /**
    * Delete item by id
-   * @param {Int} id
-   * @return {Error}
+   * @param {int} id
+   * @return {error}
    */
   delete(id) {
     return this.config.model.delete(id);
