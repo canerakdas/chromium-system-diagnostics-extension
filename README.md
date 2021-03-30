@@ -2,6 +2,14 @@
 
 This extension can get system information and able to send messages to the PWA.
 
+## Get started
+
+Install the dependencies...
+
+```bash
+npm install
+```
+
 ## Build
 
 To build the compiler, and all the other modules included in the package:
