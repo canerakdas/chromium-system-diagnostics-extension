@@ -13,9 +13,10 @@ export default class Controller {
   }
 
   /**
-   *
+   * TODO : This usage is wrong, controllers need only one addListener.
    */
   router() {
+    // Usage: https://developer.chrome.com/docs/extensions/reference/runtime/
     chrome.runtime.onMessageExternal.addListener(
         async (request, sender, sendResponse) => {
           if (request.type === this.config.type) {
@@ -59,7 +60,7 @@ export default class Controller {
 
   /**
    * Creating and storing new item
-   * @return {promise}
+   * @return {promise} System information
    */
   post() {
     return this.config.model.add();
@@ -67,21 +68,21 @@ export default class Controller {
 
   /**
    * Retrieve stored item by id
-   * @param {int} id
-   * @return {array}
+   * @param {int} id Identity of system information
+   * @return {array} Slice of system information
    */
   getOne(id) {
     return this.config.model.getById(id);
   }
 
   /**
-   * Get all of stored items
-   * @param {array} fields []Array
-   * @param {string} sort
-   * @param {string} order
-   * @param {int} offset
-   * @param {int} limit
-   * @return {object}
+   * Retrieve selected system informations by query
+   * @param {array} fields Filtering system informations by fields
+   * @param {string} sort Sorting items by key
+   * @param {string} order Sorting items [asc,desc]
+   * @param {int} offset Items offset
+   * @param {int} limit Items limit
+   * @return {object|error} Slice of system information or error
    */
   getAll(fields, sort, order, offset, limit) {
     return this.config.model.getAll(
@@ -94,8 +95,8 @@ export default class Controller {
 
   /**
    * Update item by id
-   * @param {int} id
-   * @param {object} item
+   * @param {int} id Identity of system information
+   * @param {object} item New system information
    * @return {error}
    */
   put(id, item) {
@@ -104,7 +105,7 @@ export default class Controller {
 
   /**
    * Delete item by id
-   * @param {int} id
+   * @param {int} id Identity of system information
    * @return {error}
    */
   delete(id) {

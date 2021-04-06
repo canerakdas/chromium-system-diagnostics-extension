@@ -15,13 +15,18 @@ export default class SystemInformation {
   }
 
   /**
-   * Creating and storing new item
-   * @return {Promise}
+   * It takes relevant system information and returns it as a promise.
+   * @return {Promise} System information
    */
   add() {
     return new Promise((resolve, reject) => {
       try {
         this.config.listener((info) =>{
+          /**
+           * @namespace
+           * @property {int} id Identity of system information
+           * @property {time} time Unix epoch time
+           */
           let item = {
             'id': this.config.cursor,
             'time': new Date().getTime(),
@@ -50,8 +55,8 @@ export default class SystemInformation {
 
   /**
    * Retrieve stored item by id
-   * @param {int} id
-   * @return {array}
+   * @param {int} id Identity of system information
+   * @return {error}
    */
   getById(id) {
     try {
@@ -66,13 +71,13 @@ export default class SystemInformation {
   }
 
   /**
-   * Get all of stored items
-   * @param {array} fields []Array
-   * @param {string} sort
-   * @param {string} order
-   * @param {int} offset
-   * @param {int} limit
-   * @return {object}
+   * Retrieve selected system informations by query
+   * @param {array} fields Filtering system informations by fields
+   * @param {string} sort Sorting items by key
+   * @param {string} order Sorting items [asc,desc]
+   * @param {int} offset Items offset
+   * @param {int} limit Items limit
+   * @return {object|error} Slice of system information or error
    */
   getAll(fields, sort, order, offset, limit) {
     try {
@@ -110,8 +115,8 @@ export default class SystemInformation {
 
   /**
    * Update item by id
-   * @param {int} id
-   * @param {object} item
+   * @param {int} id Identity of system information
+   * @param {object} item New system information
    * @return {error}
    */
   update(id, item) {
@@ -130,7 +135,7 @@ export default class SystemInformation {
 
   /**
    * Delete item by id
-   * @param {int} id
+   * @param {int} id Identity of system information
    * @return {error}
    */
   delete(id) {

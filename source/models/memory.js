@@ -1,5 +1,10 @@
 import SystemInformation from '../adapter/chrome_system/index.js';
 
+/**
+ * @namespace
+ * @property {int} sampleLimit In memory stored item count
+ * @property {function} listener Get physical memory information.
+ */
 const config = {
   sampleLimit: 15,
   listener: chrome.system.memory.getInfo,
